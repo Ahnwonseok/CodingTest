@@ -1,27 +1,39 @@
+import java.util.*;
 class Solution {
     public int[] solution(int[] sequence, int k) {
-        
-        int N = sequence.length;
-        int left = 0, right = N;
+        int[] answer = new int[2];
+
+        int L = 0;
+        int R = -1;
+        int range = Integer.MAX_VALUE;
         int sum = 0;
-        for(int L = 0, R = 0; L < N; L++) {
-            while(R < N && sum < k) {
-                sum += sequence[R++];
+
+        while (R < sequence.length){
+
+            //System.out.println(sum);
+            if (sum < k) {
+                R++;
+                if (R < sequence.length)
+                    sum += sequence[R];
             }
-            
-            if(sum == k) {
-                int range = R - L - 1;
-                if((right - left) > range) {
-                    left = L;
-                    right = R - 1;
+            else if (sum > k) {
+                sum -= sequence[L];
+                L++;
+            }
+            else {
+                if (R-L < range) {
+                    answer[0] = L;
+                    answer[1] = R;
+                    range = R - L;
                 }
+                sum -= sequence[L];
+                L++;
             }
-            
-            sum -= sequence[L];
+            //else if (R-L == range) break;
+            //System.out.println(Arrays.toString(answer));
+            //System.out.println("------------------");
         }
-        
-        int[] answer = {left, right};
-        
+
         return answer;
     }
 }
