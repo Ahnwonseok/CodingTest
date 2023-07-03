@@ -1,5 +1,5 @@
 class Solution {
-    public long solution(long r1, long r2) {
+    public long solution(int r1, int r2) {
         long answer = 0;
         long y1 = 0;
         long y2 = 0;
@@ -10,9 +10,9 @@ class Solution {
         y2 = twoCircle.innerNum(false, r2);
         line = twoCircle.innerNum(true, r1);
 
-        // System.out.println(y1);
-        // System.out.println(y2);
-        // System.out.println(line);
+//        System.out.println(y1);
+//        System.out.println(y2);
+//        System.out.println(line);
 
         answer = y2 - y1 + line;
         //System.out.println(answer);
@@ -33,7 +33,7 @@ class Solution {
             else if(Math.sqrt(Math.pow(x,2)+Math.pow(r-y,2)) == r){
                 sum_y += r - y + 1;
                 line++;
-                //System.out.println("line: "+x);
+                System.out.println("line: "+x);
                 x++;
             }
             else y++;
