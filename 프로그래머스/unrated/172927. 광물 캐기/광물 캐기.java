@@ -5,7 +5,7 @@ class Solution {
     static class Mineral {
         private int diamond;
         private int iron;
-        private int stone;
+        private int stone; 
         
         public Mineral(int diamond, int iron, int stone) {
             this.diamond = diamond;
