@@ -1,22 +1,40 @@
 class Solution {
     public long solution(int r1, int r2) {
-        long r2count = 0;
-        for (int i = 1; i <= r2; i++) {
-            int y2 = (int) Math.floor(Math.sqrt(((long) r2 * r2 - (long) i * i))) + 1;
-            r2count += y2;
-        }
-        r2count = r2count * 4 + 1;
+        long answer = 0;
+        long y1 = 0; 
+        long y2 = 0;
+        long line = 0;
 
-        long r1count = 0;
-        long edge = 0;
-        for (int i = 1; i <= r1; i++) {
-            double yPowSqrt = Math.sqrt(((long) r1 * r1 - (long) i * i));
-            int y1 = (int) Math.floor(yPowSqrt) + 1;
-            r1count += y1;
-            if (yPowSqrt % 1 == 0.0)
-                edge += 1;
+        Solution twoCircle = new Solution();
+        y1 = twoCircle.innerNum(false, r1);
+        y2 = twoCircle.innerNum(false, r2);
+        line = twoCircle.innerNum(true, r1);
+
+        answer = y2 - y1 + line;
+        
+        return answer;
+    }
+
+    public long innerNum(boolean flag, int r){
+        int x = 1;
+        int y = 1;
+        long sum_y = 0;
+        long line = 0;
+
+        while (x <= r) {
+            if(Math.sqrt(Math.pow(x,2)+Math.pow(r-y,2)) < r){
+                sum_y += r - y + 1;
+                x++;
+            }
+            else if(Math.sqrt(Math.pow(x,2)+Math.pow(r-y,2)) == r){
+                sum_y += r - y + 1;
+                line++;
+                x++;
+            }
+            else y++;
         }
-        r1count = r1count * 4 + 1;
-        return r2count - r1count + edge * 4;
+
+        if (flag) return line * 4;
+        else return sum_y * 4;
     }
 }
