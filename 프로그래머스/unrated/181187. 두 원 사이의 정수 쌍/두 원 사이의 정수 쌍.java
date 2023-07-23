@@ -2,7 +2,7 @@ class Solution {
     public long solution(int r1, int r2) {
         long answer = 0;
         long y1 = 0; 
-        long y2 = 0;
+        long y2 = 0; 
         long line = 0;
 
         Solution twoCircle = new Solution();
