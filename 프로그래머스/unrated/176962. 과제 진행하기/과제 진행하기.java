@@ -3,7 +3,7 @@ import java.util.*;
 class Solution {    
     public List<String> solution(String[][] plans) {
         List<String> answer = new ArrayList<>();
-        
+         
         Node[] myPlans = new Node[plans.length];
         
         for(int i = 0 ; i < plans.length; i++){
