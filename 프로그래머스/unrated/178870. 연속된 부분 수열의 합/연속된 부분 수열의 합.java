@@ -18,7 +18,7 @@ class Solution {
             else if (sum > k) {
                 sum -= sequence[L];
                 L++;
-            }
+            } 
             else {
                 if (R-L < range) {
                     answer[0] = L;
