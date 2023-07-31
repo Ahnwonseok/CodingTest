@@ -47,7 +47,7 @@ class Solution {
         Collections.sort(list, ((o1, o2) -> (o2.stone - o1.stone)));
         for(Mineral m : list) {
             int dia = m.diamond;
-            int iron = m.iron;
+            int iron = m.iron; 
             int stone = m.stone;
             
             if(picks[0] > 0) {
