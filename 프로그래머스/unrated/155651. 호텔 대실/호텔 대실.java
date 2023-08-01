@@ -24,7 +24,7 @@ class Solution {
         }
         return answer;
     }
-    
+
     //시-->분으로 변경
     public static int[][] convertTime(String[][] times){
         int[][] changeTimes = new int[times.length][2];
